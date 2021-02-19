@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+<meta name="keywords" content=" ">
+<meta name="description" content=" ">
+<meta name="author" content="maning">
+<script>
+	const WIDTH = 750
+	const mobileAdapter = () => {
+		let scale = screen.width / WIDTH
+		let content = `width=${WIDTH}, initial-scale=${scale}, maximum-scale=${scale}, minimum-scale=${scale}`
+		let meta = document.querySelector('meta[name=viewport]')
+		if (!meta) {
+			meta = document.createElement('meta')
+			meta.setAttribute('name', 'viewport')
+			document.head.appendChild(meta)
+		}
+		meta.setAttribute('content', content)
+	}
+	mobileAdapter()
+	window.onorientationchange = mobileAdapter
+</script>
+<link href="./css/style.css" rel="stylesheet" type="text/css">
+<title>GraffitiJs</title>
+</head>
+<div id="main">
+		<header>
+			<h1>GRAFFITIJS</h1> 
+			<h2>即是画板又是刮刮乐</h2>
+		</header>
+		<div class="content">
+			<div class="item">
+				<div class="drowCont">
+					<div class="drow"></div>
+				</div>
+				<div class="code">
+					<div class="point"></div>
+					<div class="title"><h2>画板功能</h2></div>
+<pre>
+let drow = new GraffitiJs('.drow',{
+	bg:"#253d39",
+	color:"#e3e3e3",
+	lineWidth:"10"
+});
+</pre>
+					
+				</div>
+			</div>
+			<div class="item">
+				<div class="scratch">
+					<div class="scratchTxt">刮刮乐</div>
+				</div>
+				<div class="code">
+					<div class="point"></div>
+					<div class="title">
+						<h2>刮刮乐</h2>
+					</div>
+<pre>
+let scratch = new GraffitiJs('.scratch',{ 
+	color:"#e3e3e3",
+	percent:0.5,
+	scratch:true,
+	bg:"./images/bg.jpg",
+	onComplete:()=>{
+		console.log('scratch')
+	}
+});
+</pre>
+					
+				</div>
+			</div>
+			
+		</div>
+</div>
+<script type="module">
+	import GraffitiJs from './js/GraffitiJs.js';
+	let drow = new GraffitiJs('.drow',{bg:"#253d39", color: "#e3e3e3", lineWidth: "10"});
+	let scratch = new GraffitiJs('.scratch',{ color:"#e3e3e3",percent:0.5,scratch:true,bg:"./images/bg.jpg",onComplete:()=>{
+		console.log('scratch')
+	}});
+</script>
+</body>
+</html>
