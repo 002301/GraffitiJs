@@ -22,7 +22,7 @@ export default class GraffitiJs{
     this._dom = dom;
     this._config = {
       bg: "rgba(255,255,255,0.2)",
-      color: "#ffffff",
+      color: "#000",
       lineWidth: 40,
       scratch: false,
       percent:0,

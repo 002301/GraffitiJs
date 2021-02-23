@@ -1,6 +1,6 @@
 {
-  "name": "GraffitiJs",
-  "version": "0.0.2",
+  "name": "@airmn/graffiti",
+  "version": "0.0.3",
   "description": "",
   "main": "GraffitiJs.js",
   "scripts": {
