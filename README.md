@@ -3,10 +3,15 @@
 
 demo:https://002301.github.io/GraffitiJs/src/
 
+### 安装
+
+>npm i @airmn/graffiti
 ### 使用方法
+npm
+
 ```html
 <script type="module">
-import GraffitiJs from './js/GraffitiJs.js';
+import Graffiti from '@airmn/graffiti'
 let drow = new GraffitiJs('.drow',{
     bg:"#253d39", 
     color: "#e3e3e3", 
