@@ -1,6 +1,6 @@
 {
   "name": "@airmn/graffiti",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "GraffitiJs.js",
   "scripts": {
@@ -10,7 +10,12 @@
     "type": "git",
     "url": "git+https://github.com/002301/GraffitiJs.git"
   },
-  "keywords": ["draw","Javascript","ES6","GraffitiJs"],
+  "keywords": [
+    "draw",
+    "Javascript",
+    "ES6",
+    "GraffitiJs"
+  ],
   "author": "maNing",
   "bugs": {
     "url": "https://github.com/002301/GraffitiJs/issues"

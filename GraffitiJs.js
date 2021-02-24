@@ -67,7 +67,6 @@ export default class GraffitiJs{
   }
   //初始化背景
   setBg(){
-    // this._ctx.scale(this.dpr, this.dpr);
     if (this._config["bg"].search(/.jpg|.png|.gif/)==-1){
       this._ctx.fillStyle = this._config["bg"];
       this._ctx.fillRect(0, 0, this._canvas.width, this._canvas.height);
@@ -108,6 +107,8 @@ export default class GraffitiJs{
       this._canvas.addEventListener("touchend", onUp);
     }
     function onDown(e){
+      e.preventDefault();
+      e.stopPropagation();
       painting = true;
       let _x,_y
       if (isPC){
@@ -121,6 +122,8 @@ export default class GraffitiJs{
       lastPoint = { 'x': _x, 'y': _y };
     }
     function onMove(e) {
+      e.preventDefault();
+      e.stopPropagation();
       if (painting) {
         let _x, _y
         if (isPC) {
@@ -136,12 +139,12 @@ export default class GraffitiJs{
       }
     }
     function onUp(e){
+      e.preventDefault();
+      e.stopPropagation();
       painting = false;
       if (_this._config["scratch"] && _this._config["percent"]>0){
         _this.scratchComplete(_this._config["percent"], _this._config["onComplete"])
       }
-      // this.$emit('drawOver');
-      // this.dispatchEvent(document.createEvent('DrawEnd'));
     }
     console.log('touchInit')
   }
