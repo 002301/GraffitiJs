@@ -5,7 +5,7 @@ let isPC
  * 涂鸦板功能，可以实现涂鸦和擦除功能
  * 
  * config{
- * bg : (color|URL)设置背景,可以是 rgba|#fff|imageUrl 图片地址
+ * bg : (color|URL)设置遮罩背景,可以是 rgba|#fff|imageUrl 图片地址
  * color:#fff 设置画笔颜色
  * lineWidth:30 设置画笔粗细
  * scratch:false 设置涂鸦还是擦除 
@@ -23,7 +23,7 @@ export default class GraffitiJs{
     this._config = {
       bg: "rgba(255,255,255,0.2)",
       color: "#000",
-      lineWidth: 40,
+      lineWidth: 30,
       scratch: false,
       percent:0,
       onComplete:()=>{},
@@ -31,7 +31,7 @@ export default class GraffitiJs{
       left:0
     }
     Object.assign(this._config,config);
-    console.log(this._config)
+    // console.log(this._config)
     this.initCanvas(dom);
 
   }
@@ -115,8 +115,8 @@ export default class GraffitiJs{
         _x = e.layerX;
         _y = e.layerY;
       }else{
-        _x = e.touches[0].pageX * 2 - _this._config.left;
-        _y = e.touches[0].pageY * 2 - _this._config.top;
+        _x = e.touches[0].clientX * 2 - _this._config.left;
+        _y = e.touches[0].clientY * 2 - _this._config.top;
       }
       
       lastPoint = { 'x': _x, 'y': _y };
@@ -130,8 +130,8 @@ export default class GraffitiJs{
           _x = e.layerX;
           _y = e.layerY;
         } else {
-          _x = e.touches[0].pageX * 2 - _this._config.left;
-          _y = e.touches[0].pageY * 2 - _this._config.top;
+          _x = e.touches[0].clientX * 2 - _this._config.left;
+          _y = e.touches[0].clientY * 2 - _this._config.top;
         }
         let newPoint = { 'x': _x, 'y': _y };
         _this.drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y);

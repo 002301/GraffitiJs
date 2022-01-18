@@ -23,6 +23,8 @@
   "homepage": "https://github.com/002301/GraffitiJs#readme",
   "license": "ISC",
   "dependencies": {
+  },
+  "devDependencies": {
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
@@ -34,6 +36,5 @@
     "gulp-uglify": "^3.0.2",
     "process": "^0.11.10",
     "shelljs": "^0.8.4"
-  },
-  "devDependencies": {}
+  }
 }

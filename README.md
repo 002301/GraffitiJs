@@ -11,7 +11,8 @@ npm
 
 ```html
 <script type="module">
-import Graffiti from '@airmn/graffiti'
+import GraffitiJs from "@airmn/graffiti"
+
 let drow = new GraffitiJs('.drow',{
     bg:"#253d39", 
     color: "#e3e3e3", 
