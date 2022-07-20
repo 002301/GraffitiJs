@@ -106,32 +106,35 @@ export default class GraffitiJs{
       this._canvas.addEventListener("touchmove", onMove);
       this._canvas.addEventListener("touchend", onUp);
     }
-    function onDown(e){
+    function onDown(e) {
       e.preventDefault();
       e.stopPropagation();
+      let { top, left } = _this._dom.getBoundingClientRect()
       painting = true;
-      let _x,_y
-      if (isPC){
+      let _x, _y
+      if (isPC) {
         _x = e.layerX;
         _y = e.layerY;
-      }else{
-        _x = e.touches[0].pageX * 2 - _this._config.left;
-        _y = e.touches[0].pageY * 2 - _this._config.top;
+      } else {
+        _y = e.touches[0].pageY * 2 - top * _this.dpr;
+        _x = e.touches[0].pageX * 2 - left * _this.dpr;
       }
-      
+
       lastPoint = { 'x': _x, 'y': _y };
     }
     function onMove(e) {
       e.preventDefault();
       e.stopPropagation();
+      let { top, left } = _this._dom.getBoundingClientRect()
+
       if (painting) {
         let _x, _y
         if (isPC) {
           _x = e.layerX;
           _y = e.layerY;
         } else {
-          _x = e.touches[0].pageX * 2 - _this._config.left;
-          _y = e.touches[0].pageY * 2 - _this._config.top;
+          _x = e.touches[0].pageX * 2 - left * _this.dpr;
+          _y = e.touches[0].pageY * 2 - top * _this.dpr;
         }
         let newPoint = { 'x': _x, 'y': _y };
         _this.drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y);
